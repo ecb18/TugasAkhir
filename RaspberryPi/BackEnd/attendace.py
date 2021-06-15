@@ -10,7 +10,7 @@ def jprint(obj):
     print(text)
 
 def attempt(rfid):
-    response = requests.post("http://127.0.0.1:8000/api/raspberry/visitor", data=rfid, headers=headers)
+    response = requests.post("http://http://192.168.1.76:8000/api/raspberry/visitor", data=rfid, headers=headers)
     if (response.status_code == 404):
         res = jprint(response.json()['error'])
         return res
@@ -23,7 +23,7 @@ def getStudentData():
     student = []
     rfid = ReadRfid()
     rfid = {'rfid': rfid}
-    response = requests.post("http://127.0.0.1:8000/api/RaspberryPi/find/student", data=rfid, headers=headers)
+    response = requests.post("http://192.168.1.76:8000/api/RaspberryPi/find/student", data=rfid, headers=headers)
     data = json.loads(response.text)
     if(response.status_code == 404):
         print('mahasiswa tidak ditemukan')
