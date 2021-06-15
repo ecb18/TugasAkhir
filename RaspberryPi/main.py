@@ -1,6 +1,7 @@
 from BackEnd.Borrow import borrow
 from BackEnd.attendace import attempt,getStudentData
 from BackEnd.ReturnBook.returnBook import getBorrowData
+from helper.rfid import ReadRfid
 
 print("Enter your name:")
 print("1. pinjam buku")
@@ -17,8 +18,6 @@ elif x == 2:
     if(student != 0):
         getBorrowData(student)
 elif x == 3:
-    id = str(input("rfid: "))
+    id = ReadRfid()
     rfid = {'rfid' : id}
     attempt(rfid)
-
-
